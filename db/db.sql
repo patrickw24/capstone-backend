@@ -21,6 +21,8 @@ create table Comments(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
-INSERT INTO USERS ( password, name,email  ) VALUES ('testuser', 'Test Name', 'test@test.com')
+INSERT INTO USERS ( password, name,email  ) VALUES ('hello', 'John', 'john@codex.com')
 
-select * from users
+select * from Posts
+
+insert into Comments (content, users_id, posts_id ) values ('Third comment', 2, 1)

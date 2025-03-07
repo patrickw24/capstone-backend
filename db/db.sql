@@ -29,3 +29,5 @@ select * from posts
 insert into Comments (content, users_id, posts_id ) values ('Third comment', 2, 1)
 
 select * from Posts WHERE posts_id=1
+
+INSERT INTO Posts (content, user_id) values ('$1', 1)

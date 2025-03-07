@@ -1,6 +1,6 @@
 import express from 'express'
 export const posts = express()
-import { getPosts, addPost, getPostsID,deletePost } from '../Controllers/postscontroller'
+import { getPosts, addPost, getPostsID,deletePost } from '../Controllers/postscontroller.js'
 
 posts.get('/', getPosts)
 posts.get('/:id', getPostsID )

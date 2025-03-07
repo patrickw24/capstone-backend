@@ -28,12 +28,13 @@ export const addPost= async (req,res) => {
 
 export const getPostsID = async (req,res) =>{
     const posts_id= req.params.id
-    
+    console.log(req.params)
+    console.log(posts_id)
         try{
             const sql= 'select * from Posts WHERE posts_id= $1 '
-            const arr= [posts_id]
-            const result = db.query(sql, arr)
-            res.json({message: "User's Post Successfully Fetched"})
+            
+            const result = await db.query(sql, [posts_id])
+            res.json(result)
         }catch(error){
             res.status(500).json({message: error})
         }

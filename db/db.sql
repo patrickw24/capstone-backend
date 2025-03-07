@@ -23,6 +23,9 @@ create table Comments(
 
 INSERT INTO USERS ( password, name,email  ) VALUES ('hello', 'John', 'john@codex.com')
 
-select * from Posts
+select * from posts
+
 
 insert into Comments (content, users_id, posts_id ) values ('Third comment', 2, 1)
+
+select * from Posts WHERE posts_id=1

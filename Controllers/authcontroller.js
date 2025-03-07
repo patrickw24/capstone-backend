@@ -32,7 +32,7 @@ export const loginUser = async (req, res) => {
                     data: results
                 },
                 secretKey,
-                {expiresIn: '3h'})
+                {expiresIn: '10h'})
 
                 return res.status(200).json({token});
         } else {

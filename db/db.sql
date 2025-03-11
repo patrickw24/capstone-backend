@@ -1,17 +1,24 @@
+drop table Comments;
+drop table Posts;
+drop table Users;
+
+
 create table Users(
-    users_id SERIAL PRIMARY KEY,
+    email  VARCHAR(100) primary key,
     password  VARCHAR(100),
     name  VARCHAR(100) ,
-    email  VARCHAR(100) UNIQUE ,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
+
 
 create table Posts(
     posts_id SERIAL PRIMARY KEY,
     content text NOT NULL,
-    users_id INT REFERENCES Users(users_id) ON DELETE CASCADE,
+    email varchar(100) REFERENCES Users(email) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
 
 create table Comments(
     comments_id SERIAL PRIMARY KEY,

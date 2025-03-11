@@ -18,8 +18,8 @@ export const addComments = async (req,res) => {
     const tmp = req.body
 
     try{
-        const sql= 'INSERT INTO COMMENTS (content, users_id, posts_id) values ($1,$2,$3)'
-        const arr= [tmp.content, tmp.users_id, tmp.posts_id]
+        const sql= 'INSERT INTO COMMENTS (content, email, posts_id) values ($1,$2,$3)'
+        const arr= [tmp.content, tmp.email, tmp.posts_id]
         const results= await db.query(sql, arr)
         res.status(200).json({message: "Added Comment"})
     }catch(error){

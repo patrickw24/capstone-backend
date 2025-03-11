@@ -17,8 +17,8 @@ export const addPost= async (req,res) => {
     const tmp= req.body
 
     try{
-        const sql= 'INSERT INTO Posts (content, users_id) values ($1, $2)'
-        const arr= [tmp.content, tmp.users_id]
+        const sql= 'INSERT INTO Posts (content, email) values ($1, $2)'
+        const arr= [tmp.content, tmp.email]
         const results = await db.query(sql, arr)
         res.status(200).json({message: "Post has been added"})
     }catch(error){

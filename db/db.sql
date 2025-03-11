@@ -23,7 +23,7 @@ create table Posts(
 create table Comments(
     comments_id SERIAL PRIMARY KEY,
     content text NOT NULL,
-    users_id INT REFERENCES Users(users_id) ON DELETE CASCADE,
+    email varchar(100) REFERENCES Users(email) ON DELETE CASCADE,
     posts_id INT REFERENCES Posts(posts_id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )

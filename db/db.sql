@@ -1,3 +1,4 @@
+-- Active: 1741048758608@@127.0.0.1@5432@neondb@public
 drop table Comments;
 drop table Posts;
 drop table Users;
@@ -28,12 +29,12 @@ create table Comments(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
-INSERT INTO USERS ( password, name,email  ) VALUES ('hello', 'John', 'john@codex.com')
+INSERT INTO Co ( content, email  ) VALUES ('hello', 'frlopez@gmail.com')
 
-select * from posts
+select * from Users
 
 
-insert into Comments (content, users_id, posts_id ) values ('Third comment', 2, 1)
+insert into Comments (content, email, posts_id ) values ('Third comment', 'frlopez@gmail.com', 2)
 
 select * from Posts WHERE posts_id=1
 

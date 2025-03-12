@@ -9,9 +9,10 @@ import { authUser } from './Routes/authroutes.js';
 const app = express()
 app.use(express.json())
 dotenv.config()
+app.use(cors())
 app.use('/auth', authUser)
 
-app.use(cors())
+
 
 const tokenValidation = (req, res, next) => {
 

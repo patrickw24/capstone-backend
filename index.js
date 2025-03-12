@@ -40,5 +40,9 @@ const tokenValidation = (req, res, next) => {
 app.use('/posts', tokenValidation, posts);
 app.use('/comments', tokenValidation, comments);
 
+app.post('/validatesession', tokenValidation, (req,res) => {
+    res.json({ message: "Valid Token"})
+})
+
 const port = process.env.PORT || 8080
 app.listen(port, () => console.log(`Server running on port ${port}`))

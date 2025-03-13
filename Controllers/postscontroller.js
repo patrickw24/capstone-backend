@@ -3,7 +3,12 @@ import { db } from "../db/db.js"
 export const getPosts= async (req, res) => {
 
     try{
-        const sql = 'select * from Posts'
+        const sql = `select 
+        posts_id,
+        content,
+        email,
+        to_char(created_at, 'mm-dd-yyyy') created_at
+         from Posts`
         const posts= await db.query(sql)
         res.json(posts)
     }catch(error){

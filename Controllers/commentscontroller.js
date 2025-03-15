@@ -5,7 +5,11 @@ export const getComments = async (req, res) => {
 /*add correction to use post_id*/
     const id_post=req.params.posts_id
     try{
-        const sql = "select * from comments where posts_id= $1"
+        const sql = `select 
+        content,
+        email,
+        to_char(created_at, 'mm-dd-yyyy') created_at
+        from comments where posts_id= $1`
         const comments = await db.query(sql, [id_post])
         res.json(comments)
     }catch(error){

@@ -31,7 +31,7 @@ create table Comments(
 
 INSERT INTO Co ( content, email  ) VALUES ('hello', 'frlopez@gmail.com')
 
-select * from comments
+select * from users
 
 
 insert into Comments (content, email, posts_id ) values ('Third comment', 'frlopez@gmail.com', 2)

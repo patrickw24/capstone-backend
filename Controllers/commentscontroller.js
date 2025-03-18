@@ -6,6 +6,7 @@ export const getComments = async (req, res) => {
     const id_post=req.params.posts_id
     try{
         const sql = `select 
+        comments_id,
         content,
         email,
         to_char(created_at, 'mm-dd-yyyy') created_at

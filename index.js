@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 dotenv.config()
 app.use(cors())
-app.use('/auth', authUser)
+app.use('/api/auth', authUser)
 
 import path from 'path';
 import { fileURLToPath } from "url";

@@ -12,6 +12,11 @@ dotenv.config()
 app.use(cors())
 app.use('/auth', authUser)
 
+import path from 'path';
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 const tokenValidation = (req, res, next) => {
@@ -37,12 +42,18 @@ const tokenValidation = (req, res, next) => {
 
 
 
-app.use('/posts', tokenValidation, posts);
-app.use('/comments', tokenValidation, comments);
+app.use('/api/posts', tokenValidation, posts);
+app.use('/api/comments', tokenValidation, comments);
 
-app.post('/validatesession', tokenValidation, (req,res) => {
+app.post('/api/validatesession', tokenValidation, (req,res) => {
     res.json({ message: "Valid Token"})
 })
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html")); // React
+});
 
 const port = process.env.PORT || 8080
 app.listen(port, () => console.log(`Server running on port ${port}`))
